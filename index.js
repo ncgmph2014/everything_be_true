@@ -1,4 +1,4 @@
-function console.log(truthCheck(collection, pre) {
+function truthCheck(collection, pre) {
   // Is everyone being true?
   return pre;
 }
