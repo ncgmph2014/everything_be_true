@@ -1,11 +1,18 @@
 function truthCheck(collection, pre) {
   // Is everyone being true?
   let resultArr = [];
-  let result = false;
+  let result = true;
   for (let i = 0; i < collection.length; i++) {
     resultArr.push(collection[i][pre]);
-    if (collection[i][pre] === true) {
-      result = true;
+    if (
+      collection[i][pre] === "" ||
+      collection[i][pre] === NaN ||
+      collection[i][pre] === 0 ||
+      collection[i][pre] === null ||
+      collection[i][pre] === false ||
+      collection[i][pre] === undefined
+    ) {
+      result = false;
     }
   }
   console.log(resultArr + " this is the result array for " + pre);
@@ -22,7 +29,7 @@ console.log(
     ],
     "sex"
   ) + " should return true."
-);
+); //true because all users have a sex
 console.log(
   truthCheck(
     [
@@ -33,7 +40,7 @@ console.log(
     ],
     "sex"
   ) + " should return false."
-);
+); //I think this should return false because Dipsy doesn't have a sex
 console.log(
   truthCheck(
     [
@@ -44,7 +51,7 @@ console.log(
     ],
     "age"
   ) + " should return false."
-);
+); //should return false because "Tinky-Winky" is zero years old?
 console.log(
   truthCheck(
     [
@@ -54,7 +61,7 @@ console.log(
     ],
     "onBoat"
   ) + " should return false"
-);
+); //should return false because one onBoat is null
 console.log(
   truthCheck(
     [
@@ -64,17 +71,18 @@ console.log(
     ],
     "onBoat"
   ) + " should return true"
-);
+); //should return true because onBoat's are all true
 console.log(truthCheck([{ single: "yes" }], "single") + " should return true");
+//should return true because only single is "yes"
 console.log(
   truthCheck([{ single: "" }, { single: "double" }], "single") +
     " should return false"
-);
+); //false because one of the singles is blank ""
 console.log(
   truthCheck([{ single: "double" }, { single: undefined }], "single") +
     " should return false"
-);
+); //false because one is undefined
 console.log(
   truthCheck([{ single: "double" }, { single: NaN }], "single") +
     " should return false"
-);
+); //false because one of the single's is NaN
