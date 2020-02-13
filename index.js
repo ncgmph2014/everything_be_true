@@ -86,3 +86,4 @@ console.log(
   truthCheck([{ single: "double" }, { single: NaN }], "single") +
     " should return false"
 ); //false because one of the single's is NaN
+//currently doesn't work with this one, maybe look into boolean or truthy falsy methods
